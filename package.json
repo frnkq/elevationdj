@@ -14,6 +14,7 @@
   "author": "Franco Canevali",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "handlebars": "^4.7.7",
     "next": "^12.0.3",
     "react": "^17.0.2",

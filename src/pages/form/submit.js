@@ -1,8 +1,16 @@
+import { Routes } from "../routes";
 import { formValues } from "./form";
 
 function Submit() {
-  function sortPlaylist() {
-    console.log("submit", formValues.getValue());
+  async function sortPlaylist() {
+    const payload = formValues.getValue();
+    const { path, method } = Routes.sortPlaylist();
+    const res = await fetch(path, {
+      method: method,
+      body: JSON.stringify(payload),
+    });
+    const body = await res.json();
+    console.log(body);
   }
 
   return (
@@ -11,7 +19,7 @@ function Submit() {
         className="py-2 px-3 bg-purple-700 disabled:opacity-50 rounded text-2xl"
         onClick={sortPlaylist}
       >
-        Ordenar playlist
+        Sort playlist
       </button>
     </>
   );
